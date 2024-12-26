@@ -22,13 +22,18 @@ const Clientsignup = ({ change }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { displayName, email, password, phone } = fields;
+
+  // console.log(displayName, email, phone);
+  
+
   const handleChange = (e) => {
     setfields((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
-  const test = () => {
-    console.log("hello");
-  };
+  // const test = () => {
+  //   console.log("hello");
+  // };
   const addphone = async (id) => {
+    // console.log(phone, id);
     await setDoc(doc(db, "ClientPhone", id), {
       phone: phone,
     });
@@ -73,7 +78,7 @@ const Clientsignup = ({ change }) => {
       </h1>
       <form
         className=" flex flex-col items-center justify-center  "
-        onSubmit={test}
+        // onSubmit={test}
         action=""
       >
         <div className=" flex flex-col">

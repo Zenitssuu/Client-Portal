@@ -174,7 +174,7 @@ const Admin = () => {
 
   const accept = async (id) => {
     console.log("here");
-    
+
     const DocRef = doc(db, "Projects", id);
     await setDoc(
       DocRef,
@@ -434,7 +434,15 @@ const Admin = () => {
                               // >
                               //   <DeleteIcon />
                               // </button>
-                              <p>Working</p>
+                              <p>
+                                {c.approval?.stringValue === "Pending" ? (
+                                  <p>Working</p>
+                                ) : (
+                                  <p>Rejected</p>
+                                )}
+                              </p>
+
+                              // <p>Working</p>
                             )}
                           </div>
                         ) : (
@@ -483,6 +491,11 @@ const Admin = () => {
           showDatepicker ? "visible" : "hidden"
         }`}
       >
+        <button
+        onClick={e => setShowDatepicker(false)}
+        className="w-full flex justify-end">
+          <CloseIcon />
+        </button>
         <h1 className="text-center mt-3 font-bold">
           Select project completion date
         </h1>

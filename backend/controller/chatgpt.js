@@ -79,7 +79,7 @@ export const handlerequest = async (req, res) => {
     // console.log("prompted message ",msg);
     const filter = `${msg} convert this into html format`;
     const final = await main(filter);
-    console.log("final resp",final);
+    // console.log("final resp",final);
     console.log("sending");
     return res.status(200).json(final);
   } catch (err) {

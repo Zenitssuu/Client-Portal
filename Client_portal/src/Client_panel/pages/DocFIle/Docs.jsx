@@ -61,7 +61,7 @@ const Docs = ({ Qo, handleCloseQo, handleOpenQo }) => {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        // console.log("Document data:", docSnap.data());
         setphone(docSnap.data().phone);
       } else {
         // docSnap.data() will be undefined in this case
@@ -144,7 +144,7 @@ const Docs = ({ Qo, handleCloseQo, handleOpenQo }) => {
     });
     // setdata(result.data);
     const value = result.data.split("</head>");
-    console.log(value);
+    // console.log(value);
     setdata(value[1]);
     dispatch(setdocs(value[1]));
     setloading(false);
@@ -318,7 +318,7 @@ const Docs = ({ Qo, handleCloseQo, handleOpenQo }) => {
 
 
   const downloaddoc = () => {
-    console.log("hit");
+    // console.log("hit");
     const printElement = ReactDOMServer.renderToString(DocCont());
     html2pdf()
       .from(printElement)
@@ -330,14 +330,14 @@ const Docs = ({ Qo, handleCloseQo, handleOpenQo }) => {
         link.href = fileURL;
         link.download = "FileName" + new Date() + ".pdf";
         link.click();
-        console.log(url);
-        console.log(btoa(url));
+        // console.log(url);
+        // console.log(btoa(url));
       });
   };
 
   //generatin of qoutation
   const generateb64Qo = () => {
-    console.log("hit qoutation");
+    // console.log("hit qoutation");
     const printElement = ReactDOMServer.renderToString(QuotationCont());
     html2pdf()
       .from(printElement)
@@ -350,13 +350,13 @@ const Docs = ({ Qo, handleCloseQo, handleOpenQo }) => {
 
   // generation of doc
   const generateb64Doc = () => {
-    console.log("hit");
+    // console.log("hit");
     const printElement = ReactDOMServer.renderToString(DocCont());
     html2pdf()
       .from(printElement)
       .outputPdf()
       .then((url) => {
-        console.log(btoa(url));
+        // console.log(btoa(url));
         setbase64Doc(btoa(url));
       });
   };
@@ -367,7 +367,7 @@ const Docs = ({ Qo, handleCloseQo, handleOpenQo }) => {
       generateb64Qo();
       generateb64Doc();
     }
-    console.log(Qo);
+    // console.log(Qo);
   }, [Qo]);
 
   const test = () => {

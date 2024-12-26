@@ -39,6 +39,7 @@ const SignUp = () => {
     setfields((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
   const addphone = async (id) => {
+    console.log(phone);
     await setDoc(doc(db, "ClientPhone", id), {
       phone: phone,
     });
